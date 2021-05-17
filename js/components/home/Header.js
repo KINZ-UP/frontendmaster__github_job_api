@@ -1,4 +1,4 @@
-import { fetchData } from '../../lib/utils.js';
+import { fetchJobList } from '../../lib/utils.js';
 import { renderCardList } from './CardList.js';
 import { state } from '../../store.js';
 
@@ -39,7 +39,7 @@ const Header = ($cardList) => {
     state.query.location = $locationFilter.value;
     state.query.fillTime = $fullTimeToggle.checked ? 'on' : '';
 
-    await fetchData(true);
+    await fetchJobList(true);
     $cardList.innerHTML = '';
     renderCardList($cardList);
   });

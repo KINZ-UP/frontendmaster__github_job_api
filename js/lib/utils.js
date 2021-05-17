@@ -16,7 +16,7 @@ export function appendHTML($elem, $container) {
   $container.appendChild($elem);
 }
 
-export const fetchData = async (isRenewal) => {
+export const fetchJobList = async (isRenewal) => {
   const url = GITHUB_JOB_API();
   const response = await fetch(url);
   const data = await response.json();

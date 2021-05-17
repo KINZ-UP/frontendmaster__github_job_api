@@ -1,7 +1,7 @@
 import { state } from '../../store.js';
 import JobCard from './JobCard.js';
 import { sliceData } from './CardList.js';
-import { fetchData } from '../../lib/utils.js';
+import { fetchJobList } from '../../lib/utils.js';
 
 const LoadMoreBtn = ($cardList) => {
   if (state.noMoreData) return;
@@ -13,7 +13,7 @@ const LoadMoreBtn = ($cardList) => {
   const onLoadMore = async () => {
     if (!state.data.noMoreFetch && state.data.unrendered.length < 12) {
       const page = ++state.query.page;
-      await fetchData({ page });
+      await fetchJobList({ page });
     }
     const currData = sliceData();
     currData.forEach((item) => {
