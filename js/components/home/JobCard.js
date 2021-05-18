@@ -15,11 +15,13 @@ const JobCard = (item) => {
   const $jobCard = document.createElement('li');
   $jobCard.classList.add('item-card');
   $jobCard.innerHTML = `
-    <img class="company-logo" src="${
-      company_logo || '../assets/desktop/logo.svg'
-    }" alt='${company}' />
+    <a href="${company_url}" >
+      <img class="company-logo" src="${
+        company_logo || '../assets/desktop/logo.svg'
+      }" alt='${company}' />
+    </a>
     <p class="created_and_type">${timeSince(created_at)} &#183; ${type}</p>
-    <h3 class="title">${title}</h3>
+    <a href="#${id}"><h3 class="title">${title}</h3></a>
     <p class="company">${company}</p>
     <h4 class="location">${location}</h4>
   `;

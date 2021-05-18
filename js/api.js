@@ -12,3 +12,7 @@ export const GITHUB_JOB_API = () => {
 
   return url + queryString;
 };
+
+export const GITHUB_JOB_DETAIL_API = (id) => {
+  return `https://cors.bridged.cc/https://jobs.github.com/positions/${id}.json`;
+};

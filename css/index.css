@@ -1,3 +1,5 @@
+@import './detail.css';
+
 /* design systems */
 * {
   margin: 0;
@@ -39,7 +41,7 @@ ul {
 }
 a {
   text-decoration: none;
-  color: none;
+  color: inherit;
 }
 
 /* layout */
@@ -48,7 +50,7 @@ a {
   margin: 0 auto;
   background: var(--light-gray);
   min-height: 100vh;
-  padding-bottom: 100px;
+  /* padding-bottom: 100px; */
 }
 .container.dark {
   background: var(--midnight);
@@ -89,6 +91,7 @@ button {
   border-radius: 5px;
   font-weight: bold;
   font-size: 16px;
+  cursor: pointer;
 }
 button.button1 {
   color: white;
@@ -133,6 +136,9 @@ input[type='checkbox'] {
   height: 24px;
   border-radius: 3px;
   background-color: rgba(25, 32, 45, 0.1035);
+}
+.dark input[type='checkbox'] {
+  background-color: rgba(255, 255, 255, 0.1035);
 }
 input[type='checkbox']:hover {
   background: rgba(89, 100, 224, 0.25);
@@ -201,16 +207,18 @@ header img.main-logo {
 /* Home Header */
 main {
   position: relative;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-41px);
 }
 main .main-header {
   background: #fff;
   height: 80px;
   border-radius: 6px;
   padding: 0 16px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  margin-bottom: 105px;
 }
 .container.dark main .main-header {
   background: var(--very-dark-blue);
@@ -253,7 +261,6 @@ main .main-header form .toggle-full-time p {
 }
 
 main ul.item-list {
-  padding-top: 119px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 30px;

@@ -1,5 +1,5 @@
 import { state } from '../store.js';
-import { GITHUB_JOB_API } from '../api.js';
+import { GITHUB_JOB_API, GITHUB_JOB_DETAIL_API } from '../api.js';
 
 export function clearDOM($elem) {
   while ($elem.children.length) {
@@ -33,6 +33,13 @@ export const fetchJobList = async (isRenewal) => {
   if (data.length < 50) {
     state.data.noMoreFetch = true;
   }
+};
+
+export const fetchJobDetail = async (id) => {
+  const url = GITHUB_JOB_DETAIL_API(id);
+  const response = await fetch(url);
+  const data = await response.json();
+  state.detail = data;
 };
 
 export const timeSince = (date) => {

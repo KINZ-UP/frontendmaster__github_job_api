@@ -1,6 +1,7 @@
 export const state = {
   data: {},
   query: {},
+  detail: {},
 };
 
 export function initializeState() {

@@ -12,19 +12,28 @@ window.onload = async () => {
 
 export async function initialize() {
   initializeState();
-  await fetchJobList();
   $main.innerHTML = '';
-  $main.appendChild(Home());
-}
 
-window.onhashchange = () => {
   const hash = location.hash.substr(1);
-  console.log(hash);
   if (hash === '') {
-    initialize();
+    await fetchJobList();
+    $main.appendChild(Home());
     return;
   }
 
-  $main.innerHTML = '';
-  $main.appendChild(Detail());
+  const $detail = await Detail();
+  $main.appendChild($detail);
+}
+
+window.onhashchange = () => {
+  initialize();
+  // const hash = location.hash.substr(1);
+  // console.log(hash);
+  // if (hash === '') {
+  //   initialize();
+  //   return;
+  // }
+
+  // $main.innerHTML = '';
+  // $main.appendChild(Detail());
 };

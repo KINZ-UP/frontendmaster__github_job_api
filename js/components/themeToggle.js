@@ -5,7 +5,15 @@ const $themeToggle = $container.querySelector('.theme-toggle');
 const $mainLogo = $container.querySelector('img.main-logo');
 
 export default (function () {
-  $mainLogo.onclick = initialize;
+  $mainLogo.onclick = () => {
+    const { hash } = window.location;
+    if (hash === '' || hash === '#') {
+      initialize();
+      return;
+    } else {
+      location.hash = '';
+    }
+  };
   let toggled = false;
   const onThemeToggle = () => {
     if (toggled) {
