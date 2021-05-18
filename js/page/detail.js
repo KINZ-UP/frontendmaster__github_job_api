@@ -4,7 +4,6 @@ import { state } from '../store.js';
 const Detail = async () => {
   const id = window.location.hash.substr(1);
   await fetchJobDetail(id);
-  console.log(state.detail);
   const $detail = document.createElement('div');
   $detail.classList.add('job-detail');
 
