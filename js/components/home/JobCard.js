@@ -16,9 +16,7 @@ const JobCard = (item) => {
   $jobCard.classList.add('item-card');
   $jobCard.innerHTML = `
     <a href="${company_url}" >
-      <img class="company-logo" src="${
-        company_logo || '../assets/desktop/logo.svg'
-      }" alt='${company}' />
+      <img class="company-logo" src="${company_logo}" alt='LOGO' />
     </a>
     <p class="created_and_type">${timeSince(created_at)} &#183; ${type}</p>
     <a href="#${id}"><h3 class="title">${title}</h3></a>
